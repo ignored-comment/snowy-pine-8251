@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'Flights Index Page', type: :feature do
   before :each do
-    @murican = Airline.create(name: "Murican-Airlines")
+    @murican = Airline.create(name: "Murican Airlines")
     @murican_flight1 = @murican.flights.create(number: "1023", date: "04/01/2025", departure_city: "Mexico City", arrival_city: "New York City")
     @flight1_passenger1 = @murican_flight1.passengers.create(name: "Bob", age: 99)
     @flight1_passenger2 = @murican_flight1.passengers.create(name: "Bobette", age: 25)
@@ -23,9 +23,22 @@ RSpec.describe 'Flights Index Page', type: :feature do
     end
 
     it 'and next to each flight number I can see the name of the airline of that flight' do
+      visit '/flights'
+
+      expect(page).to have_content("Murican Airlines")
     end
 
     it "and under each flight number I see the names of all that flight's passengers" do
+      visit '/flights'
+
+      expect(page).to have_content("Bob")
+      expect(page).to have_content("Bobette")
+      expect(page).to have_content("Rob")
+      expect(page).to have_content("Zob")
+      expect(page).to have_content("Zobette")
+      expect(page).to have_content("Pob")
+
+      save_and_open_page
     end
   end
 end
