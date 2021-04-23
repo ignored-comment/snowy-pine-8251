@@ -16,9 +16,8 @@ RSpec.describe "Airlines show page", type: :feature do
 
   describe "when I visit an airline's show page" do
     it 'shows me a list of passengers that have flights on that airline' do
-      visit "/airline/#{@murican.id}"
+      visit "/airlines/#{@murican.id}"
 
-      
     end
   end
 end
