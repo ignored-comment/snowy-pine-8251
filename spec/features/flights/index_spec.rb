@@ -44,5 +44,11 @@ RSpec.describe 'Flights Index Page', type: :feature do
 
       expect(page).to have_button("Remove Passenger")
     end
+
+    it 'when I click the button to remove that passenger I am returned to the index page and I no longer see that passenger' do
+      visit '/flights'
+
+      
+    end
   end
 end
