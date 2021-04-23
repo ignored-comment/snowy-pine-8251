@@ -37,8 +37,12 @@ RSpec.describe 'Flights Index Page', type: :feature do
       expect(page).to have_content("Zob")
       expect(page).to have_content("Zobette")
       expect(page).to have_content("Pob")
+    end
 
-      save_and_open_page
+    it 'has a button or a link next to each passenger to remove that passenger from the flight' do
+      visit '/flights'
+
+      expect(page).to have_button("Remove Passenger")
     end
   end
 end
